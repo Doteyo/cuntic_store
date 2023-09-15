@@ -1,0 +1,19 @@
+{% extends 'base.html' %} {% block title %}Покупка{% endblock %}
+{% load crispy_forms_tags %} {% block content %}
+<h3>Расчёт стоимости</h3>
+<ul>
+    <li>Начальная стоимость — <strong>{{price}}か</strong></li>
+    <li>Вес — <strong>{{weight}}н</strong></li>
+    <li>Размер — <strong>{{size}}</strong></li>
+    {% if weight < 150 and sizes|get_item:size < 6 %}
+        <p>Такое сможет перевести и воздушный шар</p>
+        <p>это будет стоить <strong>150か</strong></p>
+        <h3>Итоговая стоимость {{price|floatformat:0|add:150}}か</h3>
+    {% else %}
+        <p>Такое сможет перевести только вагонетка</p>
+        <p>это будет стоить <strong>400か</strong></p>
+        <h3>Итоговая стоимость {{price|floatformat:0|add:400}}か</h3>
+    {% endif %}
+    <button class="btn btn-success">Купить</button>
+</ul>
+{% endblock %}

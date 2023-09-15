@@ -1,0 +1,64 @@
+{% extends 'base.html' %} {% block title %}Create a Post{% endblock %}
+{% block content %}
+{% for item in items %}
+<div class="card mt-2" {{'style=f"background-color:{item.color};"'}}>
+  <div class="card-header"><strong>{{ item.name }}</strong></div>
+  <div class="card-body d-flex flex-row justify-content-between">
+    <div>
+      <h6>Цена: {{item.price}}か</h6>
+      <p>Цвет: {{item.color}}</p>
+      <p>Материалы: {{item.materials}}</p>
+      <p>Доп. свойства: {{item.add_features}}</p>
+      {% if item.status == 1 %}
+      <h6 class="text-info">Принят</h6>
+      {% endif %}
+      {% if item.status >= 2 %}
+      <h6 class="text-success">Отправлен</h6>
+      {% endif %}
+    </div>
+    <div>
+      {% if user == item.seller or perms.main.delete_cunty %}
+      <form method="post">
+        {% csrf_token %}
+        <button
+          type="submit"
+          class="btn btn-danger"
+          name="post-id"
+          value="{{item.id}}"
+        >
+          Удалить
+        </button>
+      </form>
+      {% endif %}
+      {% if user.is_staff %}
+      <form method="post">
+        {% csrf_token %}
+        <button
+          type="submit"
+          class="btn btn-info"
+          name="based-id"
+          value="{{item.id}}"
+        >
+          Далее
+        </button>
+      </form>
+      {% endif %}
+        <form method="post">
+        {% csrf_token %}
+        <button
+          type="submit"
+          class="btn btn-success"
+          name="chat"
+          value="{{item.name}}"
+        >
+          Чат
+        </button>
+      </form>
+    </div>
+  </div>
+  <div class="card-footer text-muted">{{item.seller}}</div>
+</div>
+{% empty %}
+<p>No posts yet :(</p>
+{% endfor %}
+{% endblock %}

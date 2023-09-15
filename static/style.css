@@ -1,0 +1,41 @@
+.top {
+    position:absolute;
+    left:0; right:0;
+    height: 92px;
+    width: 100%;
+    background-color: cornflowerblue;
+}
+.left {
+    position:fixed;
+    left:0; top:92px; bottom: 0;
+    width: 178px;
+}
+.main {
+    position: absolute;
+    left:178px; top:92px; right:0; bottom:0;
+}
+.li-none {
+    list-style-type: none;
+    margin-top: 10px;
+}
+.li-none-top {
+    margin-top: 0;
+    list-style-type: none;
+    display: inline;
+    margin-left: 20px;
+}
+.btn {
+    background-color: dodgerblue;
+    padding: 0.5rem 1.25rem;
+}
+.btn-top {
+    background-color: floralwhite;
+    padding: 0.5rem 1.25rem;
+    border-radius: 20%;
+}
+.mrg {
+    margin-top: 10px;
+}
+.img-small {
+
+}
