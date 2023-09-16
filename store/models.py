@@ -10,7 +10,7 @@ class Cunty(models.Model):
     price = models.IntegerField("Цена", default=0)
     name = models.CharField("Название", max_length=30, default="")
     color = models.CharField("Цвет", max_length=30, default="")
-    size = models.CharField("Размер", max_length=3, default="")
+    size = models.CharField("Размер", max_length=8, default="")
     weight = models.IntegerField("Вес", default=0)
     materials = models.CharField("Материалы", max_length=45, default="")
     add_features = models.TextField("Дополнительные свойства", max_length=120, default="")
