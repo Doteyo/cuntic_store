@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% block title %}Create a Post{% endblock %}
+{% extends 'base.html' %} {% block title %}Создать заявку{% endblock %}
 {% load crispy_forms_tags %} {% block content %}
 <form method="post">
   {% csrf_token %}{{form|crispy}}
